@@ -1,25 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import IssuePage from './components/IssuePage/IssuePage';
+import axios from 'axios';
+import data from './data.json';
+import InfiniteScroll from "react-infinite-scroll-component";
+import Header from './components/Header/Header'
 
 function App() {
+
+  const [issueData, setData] = useState([]);
+
+  useEffect(() => {
+    getData();
+  },[]);
+
+
+  const getData = async () => {
+    try {
+      const response = await axios.get('https://api.github.com/repos/facebook/react/issues');
+      setData([...issueData, ...response.data]);
+    } catch (error) {
+      console.log(error.message);
+      setData([...issueData, ...data]);
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header/>
+      <div className="container">
+      <InfiniteScroll dataLength={issueData.length} next={getData} hasMore={true} loader={<Loading/>}>
+        {issueData.map((issue,idx) => (
+          <IssuePage key={idx} issue={issue}/>
+        ))}
+      </InfiniteScroll>
+      </div>
+    </>
   );
+}
+
+function Loading() {
+  return (
+    <h1 style={{textAlign: "center"}}>Loading...</h1>
+  )
 }
 
 export default App;
