@@ -15,7 +15,7 @@ function Header() {
     { name: "Insights", icon: GoInfo },
   ];
   return (
-    <div className='header-container'>
+    <div className='header'>
       <div className="header-top">
         <div className="left">
           <p>facebook / react</p>

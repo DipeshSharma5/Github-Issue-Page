@@ -28,7 +28,7 @@ function App() {
   return (
     <>
     <Header/>
-      <div className="container">
+      <div className="IssueBox">
       <InfiniteScroll dataLength={issueData.length} next={getData} hasMore={true} loader={<Loading/>}>
         {issueData.map((issue,idx) => (
           <IssuePage key={idx} issue={issue}/>

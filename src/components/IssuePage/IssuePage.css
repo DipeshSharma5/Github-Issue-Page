@@ -1,40 +1,40 @@
-.issue {
+.issueContainer {
     border: 1px solid #30363d;
     padding: 2rem;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
     
   }
   
-  .issue-info {
+  .info {
     font-size: 16px;
     line-height: 1.5;
     display: flex;
     align-items: center;
   }
   
-  .issue-info .circle-icon {
+  .info .circle-icon {
     color: green;
     fill: green;
   }
   
-  .issue-info p {
+  .info p {
     margin-left: 0.5rem;
     padding: 0.2rem 0.5rem;
   }
   
-  .user-info p {
+  .issueUser-info p {
     margin-left: 1rem;
     padding: 0.2rem 0.5rem;
     font-size: 12px;
     color: #8b949e;
   }
   
-  .issue:hover {
+  .issueContainer:hover {
     opacity: 0.5;
     cursor: pointer;
   }
   
-  .badges {
+  .status {
     margin-bottom: 0.5rem;
     margin-left: 1rem;
     padding: 0.2rem 0.5rem;
@@ -44,13 +44,13 @@
     .right {
       display: none;
     }
-    .issue-info {
+    .info {
       font-size: 16px;
       line-height: 1.5;
       display: flex;
       flex-direction: column;
     }
-    .user-info p {
+    .issueUser-info p {
       text-align: center;
     }
   }

@@ -6,19 +6,19 @@ import { FaRegDotCircle } from "react-icons/fa";
 function IssuePage(props) {
     return (
         <>
-            <div className="issue">
-            <div className="issue-info">
+            <div className="issueContainer">
+            <div className="info">
                 <IconContext.Provider value={{className:"circle-icon" }}>
                 <FaRegDotCircle/> 
                 </IconContext.Provider>
                 <p>{props.issue.title}</p>
-                <div className="badges">
+                <div className="status">
                 {props.issue.labels && props.issue.labels.map((label,idx) => (
                 <Status key={idx} title={label.name} color={label.color}/>
                 ))}
                 </div>
             </div>
-            <div className="user-info">
+            <div className="issueUser-info">
                 <p>#{props.issue.number} opened on {new Date(props.issue.created_at).toLocaleDateString()} by {props.issue.user.login}</p>
             </div>
             </div>
