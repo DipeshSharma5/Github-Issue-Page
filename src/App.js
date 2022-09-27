@@ -10,11 +10,6 @@ function App() {
 
   const [issueData, setData] = useState([]);
 
-  useEffect(() => {
-    getData();
-  },[]);
-
-
   const getData = async () => {
     try {
       const response = await axios.get('https://api.github.com/repos/facebook/react/issues');
@@ -24,6 +19,9 @@ function App() {
       setData([...issueData, ...data]);
     }
   }
+  useEffect(() => {
+    getData();
+  },[]);
 
   return (
     <>
